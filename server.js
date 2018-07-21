@@ -21,9 +21,9 @@ app.use((req, res, next) => {                           //express middleware (a-
   next();                                             //doesn't move on only wenn "next" is called
 });
 
-app.use((req, res, next) => {           //middleware: doesn't call next -> doesn't continue with everything underneath
-  res.render('maintenance.hbs');
-});
+// app.use((req, res, next) => {           //middleware: doesn't call next -> doesn't continue with everything underneath
+//   res.render('maintenance.hbs');
+// });
 
 app.use(express.static(__dirname + '/public'));                   //__dirname stored path to project directory -> node-web-server
 
@@ -46,6 +46,12 @@ app.get('/', (req, res)=> {
 app.get('/about',(req, res) => {                                  //new page (url = localhost:3000/about)
   res.render('about.hbs', {
     pageTitle: 'About Page',
+  });
+});
+
+app.get('/projects',(req, res) => {                                  //new page (url = localhost:3000/about)
+  res.render('projects.hbs', {
+    pageTitle: 'Projects',
   });
 });
 
